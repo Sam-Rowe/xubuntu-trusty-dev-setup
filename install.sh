@@ -18,6 +18,7 @@ dir="$(dirname "$0")"
 . $dir/install_vagrant.sh
 . $dir/install_x2go.sh
 . $dir/install_docker.sh
+. $dir/purge_apt_packages.sh
 . $dir/final_cleanup.sh
 
 apt_dist_upgrade;
