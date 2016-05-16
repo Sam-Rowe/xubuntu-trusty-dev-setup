@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function install_nvm {
-
+  
 sudo -u $SUDO_USER bash <<'EOF'
 
 	if [ ! -d ~/.nvm ]; then
@@ -10,6 +10,6 @@ sudo -u $SUDO_USER bash <<'EOF'
 	fi
 
 EOF
-
+  
 }
 

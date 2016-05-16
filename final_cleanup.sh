@@ -5,16 +5,16 @@ function remove_old_kernels {
 }
 
 function remove_orphaned_packages {
-    apt-get -y autoremove
+  apt-get -y autoremove
 }
 
 function remove_leftover_configs {
-    dpkg --purge $(COLUMNS=200 dpkg -l | grep '^rc' | tr -s ' ' | cut -d ' ' -f 2)
+  dpkg --purge $(COLUMNS=200 dpkg -l | grep '^rc' | tr -s ' ' | cut -d ' ' -f 2)
 }
 
 function clean_package_cache {
-    apt-get --assume-yes clean
-    apt-get --assume-yes autoclean
+  apt-get --assume-yes clean
+  apt-get --assume-yes autoclean
 }
 
 function final_cleanup {

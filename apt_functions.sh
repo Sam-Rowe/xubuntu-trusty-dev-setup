@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function apt_dist_upgrade {
-
+  
   apt_quiet_update;
   apt-get -y dist-upgrade;
   apt-get -y autoremove;
@@ -9,7 +9,7 @@ function apt_dist_upgrade {
 }
 
 function apt_quiet_update {
-
+  
   apt-get -qq -y update;
 }
 
@@ -19,7 +19,7 @@ function apt_install(){
     echo -e "Call to install() - parameter is zero length or empty."
   else
     package_status=$(dpkg-query -W --showformat='${Status}\n' $1|grep "install ok installed")
-
+    
     if [ "" == "$package_status" ]
     then
       echo -e "Installing:$1"
@@ -36,7 +36,7 @@ function apt_purge(){
     echo -e "Call to purge() - parameter is zero length or empty."
   else
     package_status=$(dpkg-query -W --showformat='${Status}\n' $1|grep "install ok installed")
-
+    
     if [ "" == "$package_status" ]
     then
       echo -e "Not purging:$1 It is not installed."
