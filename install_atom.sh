@@ -1,17 +1,18 @@
 #!/bin/bash
 
 function install_atom {
-  
+
   REPO_CHECK=$(dpkg-query -W --showformat='${Status}\n' atom | grep "install ok installed")
   if [ "" == "$REPO_CHECK" ]; then
     add-apt-repository ppa:webupd8team/atom -y
     apt_quiet_update
     apt_install atom
   fi
-  
+
 	sudo -u $SUDO_USER bash <<'EOF'
 
 		declare -a ATOM_PACKAGES=(
+      minimap
 			terminal-plus
 			npm-install
 			git-plus
@@ -36,6 +37,5 @@ function install_atom {
 	unset ATOM_PACKAGES;
 
 EOF
-  
-}
 
+}
